@@ -1,16 +1,18 @@
-[
 {
-  "modid": "trumpetskeleton",
-  "name": "Trumpet Skeleton",
-  "description": "The sound of trumpets echoes through the night...",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["JamiesWhiteShirt"],
-  "credits": "Myask ported to 1.7.10",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
+  "modList": [{
+    "modid": "${modId}",
+    "name": "${modName}",
+    "description": "The sound of trumpets echoes through the night...\nDoots echo back to 1.7.10...",
+    "version": "${modVersion}",
+    "mcversion": "${minecraftVersion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "JamiesWhiteShirt"
+    ],
+    "credits": "Myask ported to 1.7.10",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+    }]
 }
-]

@@ -27,13 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod(
-    modid = TrumpetSkeleton.MODID,
+    modid = Tags.MODID,
     version = TrumpetSkeleton.VERSION,
-    acceptedMinecraftVersions = "[1.7.10)",
+    acceptedMinecraftVersions = "[" + Tags.MINECRAFT_VERSION + "]",
     name = Tags.MODNAME
 )
 public class TrumpetSkeleton {
-    public static final String MODID = "trumpetskeleton";
+    public static final String MODID = Tags.MODID;
     public static final String VERSION = "1.7.10-0.1"; //"1.12-1.0.2.1";
 
     //public static final ResourceLocation ENTITIES_TRUMPET_SKELETON_LOOT_TABLE = new ResourceLocation(MODID, "entities/trumpet_skeleton");
