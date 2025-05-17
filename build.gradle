@@ -1,45 +1,14 @@
-buildscript {
-    repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+plugins {
+    id 'com.gtnewhorizons.gtnhconvention'
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-
-version = "1.12-1.0.2.1"
-group = "com.jamieswhiteshirt.trumpetskeleton" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "trumpetskeleton"
-
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
-
-minecraft {
-    version = "1.12.2-14.23.0.2493"
-    runDir = "run"
-    
-    mappings = "snapshot_20171004"
-}
-
-dependencies {
-}
-
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+String gitVersionEnabled = project.properties['gtnh.modules.gitVersion'] == null ? "true" : project.properties['gtnh.modules.gitVersion']
+boolean gitOffMyBack = gitVersionEnabled.toBoolean()
+println ("gtnh.modules.gitVersion:" + gitOffMyBack)
+if (!gitOffMyBack && !modVersion.isEmpty())
+    version=modVersion
+minecraft{
+    injectedTags.put("MODID",project.modId)
+    injectedTags.put("MODNAME",project.modName)
+    injectedTags.put("MODGROUP",project.modGroup)
+    injectedTags.put("MINECRAFT_VERSION",project.minecraftVersion)
 }

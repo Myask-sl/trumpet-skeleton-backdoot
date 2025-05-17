@@ -23,8 +23,8 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityTrumpetSkeleton.class, RenderTrumpetSkeleton::new);
     }
 
-    @SubscribeEvent
+/*    @SubscribeEvent
     public void registerModels(ModelRegistryEvent event) {
         ModelLoader.setCustomModelResourceLocation(TrumpetSkeletonItems.TRUMPET, 0, new ModelResourceLocation(TrumpetSkeletonItems.TRUMPET.getRegistryName(), "inventory"));
-    }
+    }*/
 }

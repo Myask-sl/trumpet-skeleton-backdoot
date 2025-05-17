@@ -18,8 +18,9 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 
-public class EntityTrumpetSkeleton extends AbstractSkeleton {
-    private static final DataParameter<Boolean> SWINGING_ARMS;
+public class EntityTrumpetSkeleton extends EntitySkeleton {
+    public static final int SPAWN_ID = 254;
+ /*   private static final DataParameter<Boolean> SWINGING_ARMS;
 
     static {
         Field swingingArmsField = ReflectionHelper.findField(AbstractSkeleton.class, "field_184728_b", "SWINGING_ARMS");
@@ -30,44 +31,22 @@ public class EntityTrumpetSkeleton extends AbstractSkeleton {
         	TrumpetSkeleton.logger.error("Could not access SWINGING_ARMS data field", e);
         }
         SWINGING_ARMS = swingingArms;
-    }
+    }*/
 
     public EntityTrumpetSkeleton(World worldIn) {
+
         super(worldIn);
-    }
-
-    @Nullable
-    @Override
-    protected ResourceLocation getLootTable() {
-        return TrumpetSkeleton.ENTITIES_TRUMPET_SKELETON_LOOT_TABLE;
-    }
+        }
 
     @Override
-    protected SoundEvent getAmbientSound() {
+    protected String getLivingSound() {
         return TrumpetSkeletonSoundEvents.ENTITY_TRUMPET_SKELETON_AMBIENT;
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
-    {
-        return SoundEvents.ENTITY_SKELETON_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound()
-    {
-        return SoundEvents.ENTITY_SKELETON_DEATH;
-    }
-
-    @Override
-    protected SoundEvent getStepSound() {
-        return SoundEvents.ENTITY_SKELETON_STEP;
-    }
-
-    @Override
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        super.setEquipmentBasedOnDifficulty(difficulty);
-        setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(TrumpetSkeletonItems.TRUMPET));
+    protected void addRandomArmor() {
+        super.addRandomArmor();
+        setCurrentItemOrArmor(0, new ItemStack(TrumpetSkeletonItems.TRUMPET));
     }
 
     @Override

@@ -8,5 +8,5 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(TrumpetSkeleton.MODID)
 public class TrumpetSkeletonItems {
-    public static final ItemTrumpet TRUMPET = null;
+    public static final ItemTrumpet TRUMPET = new ItemTrumpet().setUnlocalizedName("trumpetskeleton.trumpet").setCreativeTab(CreativeTabs.MISC);
 }

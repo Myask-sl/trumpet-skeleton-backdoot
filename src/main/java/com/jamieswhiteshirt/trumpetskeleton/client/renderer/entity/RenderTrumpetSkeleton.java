@@ -13,9 +13,10 @@ public class RenderTrumpetSkeleton extends RenderBiped<EntityTrumpetSkeleton> {
     private static final ResourceLocation SKELETON_TEXTURES = new ResourceLocation("textures/entity/skeleton/skeleton.png");
 
     public RenderTrumpetSkeleton(RenderManager renderManager) {
-        super(renderManager, new ModelTrumpetSkeleton(), 0.5F);
-        this.addLayer(new LayerHeldItem(this));
-        this.addLayer(new LayerBipedArmor(this)
+        super(new ModelTrumpetSkeleton(), 0.5F);
+        this.renderManager = renderManager;
+ //TODO:       this.addLayer(new LayerHeldItem(this));
+//TODO:        this.addLayer(new LayerBipedArmor(this)
         {
             protected void initArmor()
             {
