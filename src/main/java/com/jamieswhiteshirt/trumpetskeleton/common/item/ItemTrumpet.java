@@ -1,12 +1,10 @@
 package com.jamieswhiteshirt.trumpetskeleton.common.item;
 
+import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonSoundEvents;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
@@ -20,7 +18,7 @@ public class ItemTrumpet extends Item {
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.EAT;
+        return EnumAction.eat;
     }
 
     @Override

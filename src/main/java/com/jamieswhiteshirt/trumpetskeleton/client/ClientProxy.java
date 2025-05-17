@@ -2,17 +2,13 @@ package com.jamieswhiteshirt.trumpetskeleton.client;
 
 import com.jamieswhiteshirt.trumpetskeleton.client.renderer.entity.RenderTrumpetSkeleton;
 import com.jamieswhiteshirt.trumpetskeleton.common.CommonProxy;
-import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems;
 import com.jamieswhiteshirt.trumpetskeleton.common.entity.EntityTrumpetSkeleton;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.entity.RenderSkeleton;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -20,7 +16,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         MinecraftForge.EVENT_BUS.register(this);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTrumpetSkeleton.class, RenderTrumpetSkeleton::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTrumpetSkeleton.class, new RenderSkeleton());
     }
 
 /*    @SubscribeEvent

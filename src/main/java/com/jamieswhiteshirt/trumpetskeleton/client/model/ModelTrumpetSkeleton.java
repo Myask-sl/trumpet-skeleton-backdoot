@@ -6,11 +6,11 @@ import net.minecraft.entity.Entity;
 public class ModelTrumpetSkeleton extends ModelSkeleton {
     public ModelTrumpetSkeleton()
     {
-        this(0.0F, false);
+        this(0.0F);
     }
 
-    public ModelTrumpetSkeleton(float v, boolean b) {
-        super(v, b);
+    public ModelTrumpetSkeleton(float v) {
+        super(v);
     }
 
     @Override

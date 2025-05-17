@@ -1,8 +1,5 @@
 package com.jamieswhiteshirt.trumpetskeleton.common;
 
-import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //@GameRegistry.ObjectHolder(TrumpetSkeleton.MODID)
 public class TrumpetSkeletonSoundEvents {

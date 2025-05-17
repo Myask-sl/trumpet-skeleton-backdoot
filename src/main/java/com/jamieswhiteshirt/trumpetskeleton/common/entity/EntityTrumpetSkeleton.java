@@ -3,20 +3,10 @@ package com.jamieswhiteshirt.trumpetskeleton.common.entity;
 import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonSoundEvents;
-import net.minecraft.entity.monster.AbstractSkeleton;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
-import javax.annotation.Nullable;
-import java.lang.reflect.Field;
 
 public class EntityTrumpetSkeleton extends EntitySkeleton {
     public static final int SPAWN_ID = 254;
@@ -52,11 +42,8 @@ public class EntityTrumpetSkeleton extends EntitySkeleton {
     @Override
     public void playLivingSound() {
         super.playLivingSound();
-        if (SWINGING_ARMS != null) {
-            boolean isSwingingArms = this.dataManager.get(SWINGING_ARMS);
-            if (isSwingingArms) {
-                TrumpetSkeleton.scare(world, this);
-            }
+        if (isSwingInProgress) {
+            TrumpetSkeleton.scare(this.worldObj, this);
         }
     }
 }
