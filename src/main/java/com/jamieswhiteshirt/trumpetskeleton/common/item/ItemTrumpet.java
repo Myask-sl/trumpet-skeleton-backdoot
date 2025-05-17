@@ -38,6 +38,11 @@ public class ItemTrumpet extends Item {
     }
 
     @Override
+    public boolean shouldRotateAroundWhenRendering() {
+        return true;
+    }
+
+    @Override
     public void onUsingTick(ItemStack stack, EntityPlayer player, int count) {
         super.onUsingTick(stack, player, count);
 
