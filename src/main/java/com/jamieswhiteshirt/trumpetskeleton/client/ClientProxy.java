@@ -16,7 +16,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         MinecraftForge.EVENT_BUS.register(this);
-        RenderingRegistry.registerEntityRenderingHandler(EntityTrumpetSkeleton.class, new RenderSkeleton());
+        RenderingRegistry.registerEntityRenderingHandler(EntityTrumpetSkeleton.class, new RenderTrumpetSkeleton());
     }
 
 /*    @SubscribeEvent

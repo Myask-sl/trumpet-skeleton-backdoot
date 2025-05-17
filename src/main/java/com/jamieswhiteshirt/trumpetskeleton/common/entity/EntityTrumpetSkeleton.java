@@ -3,8 +3,13 @@ package com.jamieswhiteshirt.trumpetskeleton.common.entity;
 import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonSoundEvents;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 
@@ -40,10 +45,22 @@ public class EntityTrumpetSkeleton extends EntitySkeleton {
     }
 
     @Override
+    public EntityItem dropItem(Item itemIn, int size) {
+        if (itemIn != Items.arrow)
+            return super.dropItem(itemIn, size);
+        return null;
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity p_70652_1_) {
+        TrumpetSkeleton.scare(this.worldObj, this);
+        livingSoundTime = MathHelper.clamp_int(livingSoundTime - this.getTalkInterval(), 0, 1000);
+        playLivingSound();
+        return true;
+    }
+
+    @Override
     public void playLivingSound() {
         super.playLivingSound();
-        if (isSwingInProgress) {
-            TrumpetSkeleton.scare(this.worldObj, this);
-        }
     }
 }

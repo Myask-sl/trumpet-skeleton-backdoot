@@ -129,8 +129,8 @@ public class TrumpetSkeleton {
     }
 
     public static void scare(World world, EntityLivingBase user) {
-        if (!world.isRemote) {
-            List<EntityLivingBase> spookedEntities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.getBoundingBox().expand(10.0D, 10.0D, 10.0D));
+        if (!world.isRemote && user != null) {
+            List<EntityLivingBase> spookedEntities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(10.0D, 10.0D, 10.0D));
             for (EntityLivingBase spookedEntity : spookedEntities) {
                 if (spookedEntity == user) continue;
                 double deltaX = spookedEntity.posX - user.posX + world.rand.nextDouble() - world.rand.nextDouble();
