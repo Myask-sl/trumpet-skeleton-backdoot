@@ -90,6 +90,7 @@ public class TrumpetSkeleton {
 
     public void setSpawnLocations() {
         for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+            if (biome == null) continue;
             for (BiomeGenBase.SpawnListEntry entry : new ArrayList<>(biome.getSpawnableList(EnumCreatureType.monster))) {
                 if (entry.entityClass == EntitySkeleton.class) {
                     EntityRegistry.addSpawn(EntityTrumpetSkeleton.class, entry.itemWeight / 4, entry.minGroupCount, entry.maxGroupCount, EnumCreatureType.monster, biome);
