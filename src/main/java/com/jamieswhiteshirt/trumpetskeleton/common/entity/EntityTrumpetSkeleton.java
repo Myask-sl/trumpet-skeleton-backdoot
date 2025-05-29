@@ -1,9 +1,9 @@
 package com.jamieswhiteshirt.trumpetskeleton.common.entity;
 
 import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
-import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonSoundEvents;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Items;
@@ -11,6 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import static com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems.TRUMPET;
 
 
 public class EntityTrumpetSkeleton extends EntitySkeleton {
@@ -41,7 +43,7 @@ public class EntityTrumpetSkeleton extends EntitySkeleton {
     @Override
     protected void addRandomArmor() {
         super.addRandomArmor();
-        setCurrentItemOrArmor(0, new ItemStack(TrumpetSkeletonItems.TRUMPET));
+        setCurrentItemOrArmor(0, new ItemStack(TRUMPET));
     }
 
     @Override
@@ -62,5 +64,13 @@ public class EntityTrumpetSkeleton extends EntitySkeleton {
     @Override
     public void playLivingSound() {
         super.playLivingSound();
+    }
+
+    @Override
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
+        IEntityLivingData ield = super.onSpawnWithEgg(p_110161_1_);
+        if (getEquipmentInSlot(0).getItem() != TRUMPET)
+            setCurrentItemOrArmor(0, new ItemStack(TRUMPET));
+        return ield;
     }
 }
