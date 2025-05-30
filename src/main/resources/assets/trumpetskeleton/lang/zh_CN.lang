@@ -1,0 +1,7 @@
+entity.trumpetskeleton.TrumpetSkeleton.name=小号骷髅
+
+subtitles.entity.trumpetskeleton.trumpet_skeleton.ambient=小号骷髅：嘟嘟声
+subtitles.entity.parrot.imitate.trumpet_skeleton=鹦鹉：嘟嘟声
+subtitles.item.trumpetskeleton.trumpet.use=小号：吹奏
+
+item.trumpetskeleton.trumpet.name=小号
