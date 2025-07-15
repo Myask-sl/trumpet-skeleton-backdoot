@@ -16,8 +16,6 @@ public class RenderTrumpetSkeleton extends RenderBiped {
     public RenderTrumpetSkeleton(RenderManager renderManager) {
         super(new ModelTrumpetSkeleton(), 0.5F);
         this.renderManager = renderManager;
- //TODO:       this.addLayer(new LayerHeldItem(this));
-//TODO:        this.addLayer(new LayerBipedArmor(this)
     }
 
     public void transformHeldFull3DItemLayer()

@@ -1,6 +1,7 @@
 package com.jamieswhiteshirt.trumpetskeleton.common.entity;
 
 import com.jamieswhiteshirt.trumpetskeleton.TrumpetSkeleton;
+import com.jamieswhiteshirt.trumpetskeleton.common.Config;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
@@ -54,15 +55,23 @@ public class EntityTrumpetSkeleton extends EntitySkeleton {
     }
 
     @Override
+    public void swingItem() {} //don't.
+
+    @Override
     public boolean attackEntityAsMob(Entity p_70652_1_) {
-        TrumpetSkeleton.scare(this.worldObj, this);
-        livingSoundTime = MathHelper.clamp_int(livingSoundTime - this.getTalkInterval(), 0, 1000);
-        playLivingSound();
-        return true;
+        if (Config.fast_doot) {
+            TrumpetSkeleton.scare(this.worldObj, this);
+            livingSoundTime = MathHelper.clamp_int(livingSoundTime - this.getTalkInterval(), 0, 1000);
+            playLivingSound();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void playLivingSound() {
+        if (!Config.fast_doot)
+            TrumpetSkeleton.scare(this.worldObj, this);
         super.playLivingSound();
     }
 
