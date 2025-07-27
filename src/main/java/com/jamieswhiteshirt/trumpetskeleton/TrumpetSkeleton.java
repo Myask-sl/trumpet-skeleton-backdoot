@@ -119,8 +119,9 @@ public class TrumpetSkeleton {
     @SubscribeEvent
     public void onPlaySoundAtEntity(PlaySoundAtEntityEvent event) {
         if (event.entity instanceof EntityPlayer player) {
-            if (player.getItemInUse() != null &&
-                player.getItemInUse().getItem() == TrumpetSkeletonItems.TRUMPET) {
+            if (player.isUsingItem() &&
+                (player.getCurrentEquippedItem() != null &&
+                player.getCurrentEquippedItem().getItem() == TrumpetSkeletonItems.TRUMPET)) {
                 if ("random.eat".equals(event.name) || "random.burp".equals(event.name)) {
                     event.setCanceled(true);
                 }
