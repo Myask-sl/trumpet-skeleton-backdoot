@@ -1,6 +1,7 @@
 package com.jamieswhiteshirt.trumpetskeleton;
 
 import com.jamieswhiteshirt.trumpetskeleton.common.CommonProxy;
+import com.jamieswhiteshirt.trumpetskeleton.common.Config;
 import com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems;
 import com.jamieswhiteshirt.trumpetskeleton.common.entity.EntityTrumpetSkeleton;
 import cpw.mods.fml.common.Mod;
@@ -15,7 +16,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
@@ -84,7 +84,7 @@ public class TrumpetSkeleton {
         );
         EntityList.addMapping(EntityTrumpetSkeleton.class,
             "trumpetskeleton.TrumpetSkeleton",
-            EntityTrumpetSkeleton.SPAWN_ID,
+            Config.TRUMPET_SKELETON_ENTITY_ID,
             0xC1C1C1, 0xFCFC00);
     }
 

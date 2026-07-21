@@ -17,7 +17,6 @@ import static com.jamieswhiteshirt.trumpetskeleton.common.TrumpetSkeletonItems.T
 
 
 public class EntityTrumpetSkeleton extends EntitySkeleton {
-    public static final int SPAWN_ID = 254;
  /*   private static final DataParameter<Boolean> SWINGING_ARMS;
 
     static {
